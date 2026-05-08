@@ -24,7 +24,7 @@ class QuestionnaireServiceAgent:
         db_path: str | None = None,
         dashscope_api_key: str | None = "sk-c7518c0cc64c491ba765b65500e6993f",  # 修改为通义千问API密钥
         host: str = "127.0.0.1",
-        port: int = 6000
+        port: int = 888
     ):
         """
         初始化问卷调查服务Agent
@@ -223,6 +223,17 @@ class QuestionnaireServiceAgent:
                                     </div>
 """
                 html += f"""
+                                </div>
+"""
+            elif q_type == "判断题":
+                html += f"""
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q{q_id}" id="q{q_id}_true" value="正确" required>
+                                    <label class="form-check-label" for="q{q_id}_true">✓ 正确</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q{q_id}" id="q{q_id}_false" value="错误" required>
+                                    <label class="form-check-label" for="q{q_id}_false">✗ 错误</label>
                                 </div>
 """
             
@@ -436,7 +447,7 @@ class QuestionnaireServiceAgent:
         """命令行入口点"""
         parser = argparse.ArgumentParser(description='启动问卷服务')
         parser.add_argument('--questionnaire', type=str, required=True, help='问卷JSON文件路径')
-        parser.add_argument('--port', type=int, default=6000, help='服务端口')
+        parser.add_argument('--port', type=int, default=888, help='服务端口')
         parser.add_argument('--host', type=str, default="127.0.0.1", help='服务主机')
         parser.add_argument('--db_path', type=str, help='SQLite数据库文件路径')
         parser.add_argument('--api_key', type=str, help='通义千问API密钥（优先于环境变量）')

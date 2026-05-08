@@ -337,6 +337,30 @@ class QuestionnaireReportAgent:
                     "score_distribution": score_distribution,
                     "total_answers": len(valid_scores)
                 }
+                
+            elif question_type == "判断题":
+                # 判断题统计（正确/错误）
+                option_counts = {
+                    "正确": 0,
+                    "错误": 0
+                }
+                
+                for answer in answers:
+                    if answer in option_counts:
+                        option_counts[answer] += 1
+                
+                # 计算正确率
+                correct_count = option_counts["正确"]
+                accuracy_rate = round(correct_count / len(answers) * 100, 2) if answers else 0
+                
+                question_stats[question_id] = {
+                    "question": question_text,
+                    "type": question_type,
+                    "options": ["正确", "错误"],
+                    "counts": option_counts,
+                    "accuracy_rate": accuracy_rate,
+                    "total_answers": len(answers)
+                }
         
         # 生成总体摘要
         summary = {
