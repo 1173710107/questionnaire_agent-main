@@ -1,0 +1,6 @@
+langchain
+langchain-community
+matplotlib
+numpy
+pandas
+python-dotenv

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米SU7用户体验调查问卷</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .survey-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .survey-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .survey-title {
+            color: #ff6700;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .survey-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .question-card {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #ff6700;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .question-type {
+            font-size: 0.8rem;
+            color: #ff6700;
+            margin-bottom: 5px;
+            display: inline-block;
+            padding: 3px 8px;
+            background-color: rgba(255, 103, 0, 0.1);
+            border-radius: 4px;
+        }
+        .form-check-label, .form-check-input {
+            cursor: pointer;
+        }
+        .rating-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .rating-option {
+            text-align: center;
+            flex: 1;
+        }
+        .btn-submit {
+            background-color: #ff6700;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #e55c00;
+        }
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container survey-container">
+        <div class="survey-header">
+            <h1 class="survey-title">小米SU7用户体验调查问卷</h1>
+            <p class="survey-subtitle">了解您对小米SU7的看法和体验</p>
+        </div>
+
+        <form id="surveyForm" action="/submit" method="post">
+            <div class="questions-container">
+                <!-- 问题1 -->
+                <div class="question-card">
+                    <span class="question-type">单选题</span>
+                    <h5 class="question-text required">您购买小米SU7的主要原因是什么？</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_1" value="外观设计" required>
+                            <label class="form-check-label" for="q1_1">外观设计</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_2" value="性能表现">
+                            <label class="form-check-label" for="q1_2">性能表现</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_3" value="智能配置">
+                            <label class="form-check-label" for="q1_3">智能配置</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_4" value="品牌影响力">
+                            <label class="form-check-label" for="q1_4">品牌影响力</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_5" value="其他">
+                            <label class="form-check-label" for="q1_5">其他</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题2 -->
+                <div class="question-card">
+                    <span class="question-type">评分题</span>
+                    <h5 class="question-text required">您对小米SU7的外观设计满意程度如何？</h5>
+                    <div class="rating-options">
+                        <div class="rating-option">
+                            <input type="radio" name="q2" id="q2_1" value="非常不满意" required>
+                            <label for="q2_1">非常不满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q2" id="q2_2" value="不太满意">
+                            <label for="q2_2">不太满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q2" id="q2_3" value="一般">
+                            <label for="q2_3">一般</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q2" id="q2_4" value="比较满意">
+                            <label for="q2_4">比较满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q2" id="q2_5" value="非常满意">
+                            <label for="q2_5">非常满意</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题3 -->
+                <div class="question-card">
+                    <span class="question-type">多选题</span>
+                    <h5 class="question-text required">以下哪些是您认为小米SU7的优点？（可多选）</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q3" id="q3_1" value="操控性好">
+                            <label class="form-check-label" for="q3_1">操控性好</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q3" id="q3_2" value="动力强劲">
+                            <label class="form-check-label" for="q3_2">动力强劲</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q3" id="q3_3" value="内饰精美">
+                            <label class="form-check-label" for="q3_3">内饰精美</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q3" id="q3_4" value="配置丰富">
+                            <label class="form-check-label" for="q3_4">配置丰富</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q3" id="q3_5" value="续航能力强">
+                            <label class="form-check-label" for="q3_5">续航能力强</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请至少选择一项</div>
+                </div>
+
+                <!-- 问题4 -->
+                <div class="question-card">
+                    <span class="question-type">单选题</span>
+                    <h5 class="question-text required">关于小米SU7的空间表现，您的评价是？</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="q4_1" value="非常宽敞" required>
+                            <label class="form-check-label" for="q4_1">非常宽敞</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="q4_2" value="较为宽敞">
+                            <label class="form-check-label" for="q4_2">较为宽敞</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="q4_3" value="一般">
+                            <label class="form-check-label" for="q4_3">一般</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="q4_4" value="略显拥挤">
+                            <label class="form-check-label" for="q4_4">略显拥挤</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" id="q4_5" value="非常拥挤">
+                            <label class="form-check-label" for="q4_5">非常拥挤</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题5 -->
+                <div class="question-card">
+                    <span class="question-type">评分题</span>
+                    <h5 class="question-text required">您对小米SU7的驾驶舒适度打几分？</h5>
+                    <div class="rating-options">
+                        <div class="rating-option">
+                            <input type="radio" name="q5" id="q5_1" value="1分" required>
+                            <label for="q5_1">1分</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q5" id="q5_2" value="2分">
+                            <label for="q5_2">2分</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q5" id="q5_3" value="3分">
+                            <label for="q5_3">3分</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q5" id="q5_4" value="4分">
+                            <label for="q5_4">4分</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q5" id="q5_5" value="5分">
+                            <label for="q5_5">5分</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题6 -->
+                <div class="question-card">
+                    <span class="question-type">多选题</span>
+                    <h5 class="question-text required">在使用过程中，您遇到过哪些问题？（可多选）</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q6" id="q6_1" value="续航里程不准确">
+                            <label class="form-check-label" for="q6_1">续航里程不准确</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q6" id="q6_2" value="软件系统不稳定">
+                            <label class="form-check-label" for="q6_2">软件系统不稳定</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q6" id="q6_3" value="售后服务差">
+                            <label class="form-check-label" for="q6_3">售后服务差</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q6" id="q6_4" value="车内噪音大">
+                            <label class="form-check-label" for="q6_4">车内噪音大</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="q6" id="q6_5" value="无明显问题">
+                            <label class="form-check-label" for="q6_5">无明显问题</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请至少选择一项</div>
+                </div>
+
+                <!-- 问题7 -->
+                <div class="question-card">
+                    <span class="question-type">单选题</span>
+                    <h5 class="question-text required">相比同价位其他车型，您觉得小米SU7性价比如何？</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="q7_1" value="非常高" required>
+                            <label class="form-check-label" for="q7_1">非常高</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="q7_2" value="较高">
+                            <label class="form-check-label" for="q7_2">较高</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="q7_3" value="一般">
+                            <label class="form-check-label" for="q7_3">一般</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="q7_4" value="较低">
+                            <label class="form-check-label" for="q7_4">较低</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q7" id="q7_5" value="非常低">
+                            <label class="form-check-label" for="q7_5">非常低</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题8 -->
+                <div class="question-card">
+                    <span class="question-type">评分题</span>
+                    <h5 class="question-text required">对于小米SU7的智能化功能，您的满意度为？</h5>
+                    <div class="rating-options">
+                        <div class="rating-option">
+                            <input type="radio" name="q8" id="q8_1" value="非常不满意" required>
+                            <label for="q8_1">非常不满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q8" id="q8_2" value="不太满意">
+                            <label for="q8_2">不太满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q8" id="q8_3" value="一般">
+                            <label for="q8_3">一般</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q8" id="q8_4" value="比较满意">
+                            <label for="q8_4">比较满意</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="q8" id="q8_5" value="非常满意">
+                            <label for="q8_5">非常满意</label>
+                        </div>
+                    </div>
+                    <div class="error-message">请选择一项</div>
+                </div>
+
+                <!-- 问题9 -->
+                <div class="question-card">
+                    <span class="question-type">单选题</span>
+                    <h5 class="question-text required">您是否愿意推荐小米SU7给朋友或家人？</h5>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="q9_1" value="非常愿意" required>
+                            <label class="form-check-label" for="q9_1">非常愿意</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="q9_2" value="愿意">
+                            <label class="form-check-label" for="q9_2">愿意</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="q9_3" value="不确定">
+                            <label class="form-check-label" for="q9_3">不确定</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="q9_4" value="不愿意">
+                            <label class="form-check-label" for="q9_4">不愿意</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q9" id="

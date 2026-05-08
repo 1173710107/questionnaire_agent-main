@@ -1,0 +1,55 @@
+# 环境变量文件（包含API密钥）
+.env
+
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+env/
+ENV/
+qa_venv/
+
+# IDE相关文件
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.env
+
+# 项目输出文件
+/output/
+
+# 日志文件
+*.log
+
+# 数据库文件
+/db/
+
+# 报告文件
+/reports/
+
+# 模板文件（自动生成）
+/templates/questionnaire_*.html
+/templates/thank_you_*.html
